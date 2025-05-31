@@ -30,3 +30,5 @@ opt.tabstop = 4
 opt.undofile = true
 -- wrap lines
 opt.wrap = true
+
+require "lazy"
