@@ -31,4 +31,4 @@ opt.undofile = true
 -- wrap lines
 opt.wrap = true
 
-require "lazy"
+require "config.lazy"
