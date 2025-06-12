@@ -6,14 +6,16 @@ return {
     -- add any opts here
     -- for example
     provider = "lmstudio",
-    vendors = {
+    providers = {
             lmstudio = {
               __inherited_from = "openai",
               endpoint = "http://127.0.0.1:1234/v1",
               model = "qwen2.5-coder-14b-instruct", -- your desired model (or use gpt-4o, etc.)
               timeout = 30000, -- Timeout in milliseconds, increase this for reasoning models
-              temperature = 0,
-              max_completion_tokens = 4096, -- Increase this to include reasoning tokens (for reasoning models)
+              extra_request_body = {
+                      temperature = 0,
+                      max_completion_tokens = 4096, -- Increase this to include reasoning tokens (for reasoning models)
+              },
               api_key_name = ""
               --reasoning_effort = "medium", -- low|medium|high, only used for reasoning models
             },
