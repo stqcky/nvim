@@ -12,10 +12,11 @@ return {
                         }
                 }
 
-                vim.keymap.set("n", "<A-v>", "<cmd>ToggleTerm direction=vertical<CR>")
-                vim.keymap.set("t", "<A-v>", "<cmd>ToggleTerm direction=vertical<CR>")
-                vim.keymap.set("n", "<A-i>", "<cmd>ToggleTerm direction=float<CR>")
-                vim.keymap.set("t", "<A-i>", "<cmd>ToggleTerm direction=float<CR>")
+                vim.keymap.set("n", "<A-v>", "<cmd>1ToggleTerm direction=vertical<CR>")
+                vim.keymap.set("t", "<A-v>", "<cmd>1ToggleTerm direction=vertical<CR>")
+
+                vim.keymap.set("n", "<A-i>", "<cmd>2ToggleTerm direction=float<CR>")
+                vim.keymap.set("t", "<A-i>", "<cmd>2ToggleTerm direction=float<CR>")
 
                 local opts = {buffer = 0}
                 vim.keymap.set('t', '<esc>', [[<C-\><C-n>]], opts)
