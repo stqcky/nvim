@@ -7,6 +7,9 @@ return {
                 },
                 rename = {
                         auto_save = true
+                },
+                ui = {
+                        code_action = ""
                 }
         },
         dependencies = {
@@ -20,12 +23,12 @@ return {
                         mode = "n",
                         desc = "Code actions"
                 },
-                {
-                        "K",
-                        "<cmd>Lspsaga hover_doc<cr>",
-                        mode = "n",
-                        desc = "Hover"
-                },
+                -- {
+                --         "K",
+                --         "<cmd>Lspsaga hover_doc<cr>",
+                --         mode = "n",
+                --         desc = "Hover"
+                -- },
                 {
                         "<leader>ra",
                         "<cmd>Lspsaga rename<cr>",

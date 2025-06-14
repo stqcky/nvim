@@ -8,6 +8,7 @@ return {
                         ["<Tab>"] = { "select_next" },
                         ["<S-Tab>"] = { "select_prev" },
                         ["<C-Space>"] = { "accept" },
+                        ["<Enter>"] = { "accept", "fallback" }
                 },
                 appearance = {
                         nerd_font_variant = "mono"

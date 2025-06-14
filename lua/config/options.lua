@@ -6,7 +6,7 @@ vim.g.maplocalleader = " "
 vim.g.have_nerd_font = true
 
 vim.schedule(function()
-  vim.o.clipboard = 'unnamedplus'
+        vim.o.clipboard = 'unnamedplus'
 end)
 
 local opt = vim.opt
@@ -51,3 +51,37 @@ opt.undofile = true
 opt.wrap = true
 
 opt.fillchars = { eob = " " }
+
+local signs = {
+        Error = "",
+        Warn = "",
+        Info = "",
+        Hint = "󰌵"
+}
+
+for type, icon in pairs(signs) do
+        local hl = "DiagnosticSign" .. type
+        vim.fn.sign_define(hl, { text = icon, texthl = hl, numhl = hl })
+end
+
+vim.diagnostic.config({
+        virtual_text = {
+                spacing = 2,
+                prefix = function(diagnostic)
+                        local icons = {
+                                [vim.diagnostic.severity.ERROR] = signs.Error,
+                                [vim.diagnostic.severity.WARN] = signs.Warn,
+                                [vim.diagnostic.severity.INFO] = signs.Info,
+                                [vim.diagnostic.severity.HINT] = signs.Hint,
+                        }
+
+                        return icons[diagnostic.severity] .. " "
+                end
+        },
+        signs = false,
+        underline = true,
+        update_in_insert = false,
+        severity_sort = true
+})
+
+vim.o.laststatus = 3

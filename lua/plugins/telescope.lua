@@ -1,19 +1,57 @@
 return {
         "nvim-telescope/telescope.nvim",
         dependencies = { "nvim-lua/plenary.nvim" },
-        config = function()
-                require("telescope").setup {}
+        opts = {},
+        keys = {
+                {
+                        "<leader>ff",
+                        function() require("telescope.builtin").find_files() end,
+                        mode = "n",
+                        desc = "Find files"
+                },
+                {
+                        "<leader>fw",
+                        function() require("telescope.builtin").live_grep() end,
+                        mode = "n",
+                        desc = "Live grep"
+                },
 
-                local builtin = require("telescope.builtin")
+                {
+                        "gr",
+                        function() require("telescope.builtin").lsp_references() end,
+                        mode = "n",
+                        desc = "LSP references"
+                },
+                {
+                        "gi",
+                        function() require("telescope.builtin").lsp_implementations() end,
+                        mode = "n",
+                        desc = "LSP implementations"
+                },
+                {
+                        "gd",
+                        function() require("telescope.builtin").lsp_definitions() end,
+                        mode = "n",
+                        desc = "LSP definitions"
+                },
+                {
+                        "<leader>q",
+                        function() require("telescope.builtin").diagnostics() end,
+                        mode = "n",
+                        desc = "Global diagnostics"
+                },
 
-                vim.keymap.set("n", "<leader>ff", builtin.find_files, { desc = "Find files" })
-                vim.keymap.set("n", "<leader>fw", builtin.live_grep, { desc = "Live grep" })
-
-                vim.keymap.set("n", "gr", builtin.lsp_references, { desc = "LSP references" })
-                vim.keymap.set("n", "gi", builtin.lsp_implementations, { desc = "LSP implementations" })
-                vim.keymap.set("n", "gd", builtin.lsp_definitions, { desc = "LSP definitions" })
-
-                vim.keymap.set("n", "<leader>cm", builtin.git_commits, { desc = "Git commits" })
-                vim.keymap.set("n", "<leader>gt", builtin.git_status, { desc = "Git status" })
-        end
+                {
+                        "<leader>cm",
+                        function() require("telescope.builtin").git_commits() end,
+                        mode = "n",
+                        desc = "Git commits"
+                },
+                {
+                        "<leader>gt",
+                        function() require("telescope.builtin").git_status() end,
+                        mode = "n",
+                        desc = "Git status"
+                },
+        }
 }
