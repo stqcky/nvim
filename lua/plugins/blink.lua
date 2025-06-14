@@ -3,6 +3,10 @@ return {
         dependencies = { "rafamadriz/friendly-snippets" },
         version = "1.*",
         opts = {
+                enabled = function()
+                        return vim.bo.buftype ~= "prompt" and vim.bo.filetype ~= "sagarename" and
+                        vim.b.completion ~= false
+                end,
                 keymap = {
                         preset = "none",
                         ["<Tab>"] = { "select_next" },
