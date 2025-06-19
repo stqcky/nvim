@@ -35,7 +35,7 @@ return {
                         desc = "LSP definitions"
                 },
                 {
-                        "<leader>q",
+                        "<leader>Q",
                         function() require("telescope.builtin").diagnostics() end,
                         mode = "n",
                         desc = "Global diagnostics"

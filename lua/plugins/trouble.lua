@@ -10,11 +10,18 @@ return {
                 },
                 modes = {
                         diagnostic = {
-                                auto_open = true,
                                 mode = "diagnostics",
                                 filter = { buf = 0 }
                         }
                 }
         },
         cmd = "Trouble",
+        keys = {
+                {
+                        "<leader>q",
+                        "<cmd>Trouble diagnostics toggle focus=true filter.buf=0<CR>",
+                        mode = "n",
+                        desc = "Buffer diagnostics"
+                }
+        }
 }
